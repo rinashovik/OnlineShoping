@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<nav th:replace="~{fragments :: page-header}"></nav>
+
+
+<div class="container body-content g-col-8 text-white text-bg-secondary mt-3">
+
+    <h1 class="text-white text-bg-warning"><strong>Welcome Customer Working Space!!!!</strong></h1>
+<div>
+    <h1> <a th:href="@{/}">Dashboard</a></h1>
+</div>
+    <!--    <a th:href="@{/profile/}">Save</a>-->
+    <div>    <span> <a th:href="@{/customer/add}">Add User</a></span>
+    </div>
+    <div><a th:href="@{/customer/id/}">Edit User</a></div>
+    <div><a th:href="@{/customer/list}">Customer Lists</a></div>
+    <div><a th:href="@{/settings/}">Settings</a></div>
+    <div><a th:href="@{/contact/}">Contact</a></div>
+    <div><a th:href="@{/customer/profile}">Customer Profile</a></div>
+
+</div>
+</body>
+<div th:replace="~{fragments :: page-footer}"></div>
+</html>

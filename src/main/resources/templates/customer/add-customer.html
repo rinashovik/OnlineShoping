@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}">
+</head>
+<body class="container body-content">
+<nav th:replace="~{fragments :: page-header}"></nav>
+
+<div class="container body-content g-col-8 text-white text-bg-secondary mt-3">
+    <div class="container">
+        <h2>Create New Customer</h2>
+        <div >
+            <label>Gender:</label>
+            <label>
+                <input  type="radio"/>
+            </label>
+            <label>Male</label>
+            <label>
+                <input  type="radio"/>
+            </label>
+            <label>Female</label>
+            <label>
+                <input  type="radio"/>
+            </label>
+            <label>Other</label>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <form method="post" class="mt-50">
+                    <div class="form-group">
+                        <label th:for="fName">First name
+                            <input type="text" class="form-control" th:field="${customer.fName}">
+                        </label>
+                        <p class="error" th:errors="${customer.fName}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="lName">Last name
+                            <input class="form-control" th:field="${customer.lName}">
+                        </label>
+                        <p class="error" th:errors="${customer.lName}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="email">Email
+                            <input class="form-control" th:field="${customer.email}">
+                        </label>
+                        <p class="error" th:errors="${customer.email}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="phoneNumber">Phone Number
+                            <input class="form-control" th:field="${customer.phoneNumber}">
+                        </label>
+                        <p class="error" th:errors="${customer.phoneNumber}"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label th:for="address">Address
+                            <input class="form-control" th:field="${customer.address}">
+                        </label>
+                        <p class="error" th:errors="${customer.address}"></p>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="city">City
+                            <input class="form-control" th:field="${customer.city}">
+                        </label>
+                        <p class="error" th:errors="${customer.city}"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label th:for="zipCode">Zip Code
+                            <input class="form-control" th:field="${customer.zipCode}">
+                        </label>
+                        <p class="error" th:errors="${customer.zipCode}"></p>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-info"><a th:href="@{'/customer/'}">Cancel</a></button>
+<!--                        <button class="btn btn-success g-3 text-white bg-purple" type="submit"><a th:href="@{/customer/list}">Save</a></button>-->
+                        <button class="btn btn-success g-3 text-white bg-purple" type="submit">Save</button>
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

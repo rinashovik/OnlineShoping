@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+
+
+<body>
+<nav th:replace="~{fragments :: page-header}"></nav>
+
+<div class="container-fluid body-content g-col-8 text-white text-bg-secondary mt-3">
+
+    <h1 class="text-white text-bg-warning"><strong>Customer Lists</strong></h1>
+    <div>
+        <button class="btn btn-info"><a th:href="@{'/customer/add'}">Add User</a></button>
+    </div>
+
+    <div class="container mt-3">
+        <div class="card">
+            <div class="card-header">
+                <table>
+<!--                                        <div class="container body-content">-->
+                    <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Zip Code</th>
+                        <th>Action</th>
+
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <ul>
+                        <tr th:each="customer : ${customers}">
+                            <th:block>
+
+                                <td th:text="${customer.fName}">Name</td>
+                                <td th:text="${customer.lName}"></td>
+                                <td th:text="${customer.email}"></td>
+                                <td th:text="${customer.phoneNumber}"></td>
+                                <td th:text="${customer.address}"></td>
+                                <td th:text="${customer.city}"></td>
+                                <td th:text="${customer.zipCode}"></td>
+                                <td>
+                                    <button class="btn btn-primary btn-md g-2"><a th:href="@{/customer/edit}">Edit</a></button>
+                                    <button class="btn btn-danger btn-md"><a th:href="@{/customer/delete}">Delete</a></button>
+                                </td>
+                            </th:block>
+
+                        </tr>
+
+
+                    </ul>
+
+
+                    </tbody>
+                </table>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer th:replace="~{fragments :: page-footer}"></footer>
+    </div>
+</body>
+</html>

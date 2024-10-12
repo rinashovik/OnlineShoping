@@ -1,0 +1,34 @@
+package com.simple_world.eShop.controllers;
+
+import com.simple_world.eShop.data.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/")
+public class HomeController {
+
+    @Autowired private CustomerRepository customerRepository;
+
+
+    @GetMapping("/")
+    public String welcomeHomePage(){
+
+        return "home";
+
+    }
+
+    @GetMapping("/index")
+    public String WelcomeCustomerDashboardPage(){
+
+        return "index";
+
+    }
+
+
+
+}
