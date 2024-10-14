@@ -10,6 +10,82 @@
     <h1 class="text-white text-bg-warning"><strong>Welcome Delete Page!!!!</strong></h1>
 
 </div>
-</body>
+
+<!--&lt;!&ndash;<form action='/delete' method='POST'>&ndash;&gt;-->
+<!--<form  method='POST'>-->
+
+<!--&lt;!&ndash;    <h3>Delete Task</h3>&ndash;&gt;-->
+<!--    <th:block th:each="job : ${customers}">-->
+<!--        <label>-->
+<!--            <input type="checkbox" name="customerId" th:value="${job.id}" />-->
+<!--            <span th:text="${job.fName}"></span> &lt;!&ndash; implicitly calls toString() &ndash;&gt;-->
+<!--        </label><br />-->
+<!--        <label>-->
+<!--&lt;!&ndash;            <input type="checkbox" name="customerId" th:value="${job.id}" />&ndash;&gt;-->
+<!--            <span th:text="${job.lName}"></span> &lt;!&ndash; implicitly calls toString() &ndash;&gt;-->
+<!--        </label><br /><label>-->
+<!--&lt;!&ndash;        <input type="checkbox" name="customerId" th:value="${job.id}" />&ndash;&gt;-->
+<!--        <span th:text="${job.email}"></span> &lt;!&ndash; implicitly calls toString() &ndash;&gt;-->
+<!--    </label><br /><label>-->
+<!--&lt;!&ndash;        <input type="checkbox" name="customerId" th:value="${job.id}" />&ndash;&gt;-->
+<!--        <span th:text="${job.phoneNumber}"></span> &lt;!&ndash; implicitly calls toString() &ndash;&gt;-->
+<!--    </label><br /><label>-->
+<!--&lt;!&ndash;        <input type="checkbox" name="customerId" th:value="${job.id}" />&ndash;&gt;-->
+<!--        <span th:text="${job.address}"></span> &lt;!&ndash; implicitly calls toString() &ndash;&gt;-->
+<!--    </label><br /><label>-->
+<!--&lt;!&ndash;        <input type="checkbox" name="customerId" th:value="${job.id}" />&ndash;&gt;-->
+<!--        <span th:text="${job.city}"></span> &lt;!&ndash; implicitly calls toString() &ndash;&gt;-->
+<!--    </label><br />-->
+<!--&lt;!&ndash;        <label>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="checkbox" name="customerId" th:value="${job.id}" />&ndash;&gt;-->
+<!--        <span th:text="${job.zipCode}"></span> &lt;!&ndash; implicitly calls toString() &ndash;&gt;-->
+<!--&lt;!&ndash;    </label><br /><label>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="checkbox" name="customerId" th:value="${job.id}" />&ndash;&gt;-->
+<!--&lt;!&ndash;        <span th:text="${job.fName}"></span> &lt;!&ndash; implicitly calls toString() &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    </label><br /><label>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type="checkbox" name="customerId" th:value="${job.id}" />&ndash;&gt;-->
+<!--&lt;!&ndash;        <span th:text="${job.fName}"></span> &lt;!&ndash; implicitly calls toString() &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    </label><br />&ndash;&gt;-->
+<!--    </th:block>-->
+<!--    <button class="delete btn btn-danger btn-md" type='submit'>Delete Task</button>-->
+<!--</form>-->
+
+<table class="container body-content">
+    <!--                                        <div class="container body-content">-->
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Zip Code</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <ul>
+        <tr th:each="customer : ${customers}">
+            <th:block>
+                <td th:text="${customer.id}">ID</td>
+
+                <td th:text="${customer.fName}">Name</td>
+                <td th:text="${customer.lName}"></td>
+                <td th:text="${customer.email}"></td>
+                <td th:text="${customer.phoneNumber}"></td>
+                <td th:text="${customer.address}"></td>
+                <td th:text="${customer.city}"></td>
+                <td th:text="${customer.zipCode}"></td>
+
+            </th:block>
+        </tr>
+    </ul>
+    </tbody>
+</table>
+
 <div th:replace="~{fragments :: page-footer}"></div>
+</body>
 </html>

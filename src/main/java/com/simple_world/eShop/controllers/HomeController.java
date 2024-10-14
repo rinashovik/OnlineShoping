@@ -29,6 +29,18 @@ public class HomeController {
 
     }
 
+    @GetMapping("/contact")
+    public String WelcomeCustomerContactPage(){
+
+        return "contact";
+
+    }
+    @GetMapping("/settings")
+    public String WelcomeCustomerSettingsPage(){
+
+        return "settings";
+
+    }
 
 
 }

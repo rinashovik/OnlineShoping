@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -24,16 +25,10 @@ public class CustomerController {
         return "customer/index";
 
     }
-//    @GetMapping("/list")
-//    public String displayCustomerList(Model model){
-//        model.addAttribute("title", "customer-list");
-//        model.addAttribute("customers", customerRepository.findAll());
-//        return "customer/customer-list";
-//    }
-//
+
 @GetMapping("/list")
 public String displayCustomerList(Model model){
-    model.addAttribute("title", "customerlist");
+    model.addAttribute("title", "customer-list");
     model.addAttribute("customers", customerRepository.findAll());
     return "customer/customer-list";
 }
@@ -69,24 +64,62 @@ public String displayCustomerList(Model model){
     @GetMapping("/profile")
     public String displayCustomerProfile(Model model){
         model.addAttribute("title", "customerProfile");
-        model.addAttribute("customers", customerRepository.findAll());
+        model.addAttribute("customers", customerRepository.findAll()); // List all customers
         return "customer/profile";
     }
 
-    @GetMapping("/edit")
-    public String displayCustomerUpdateProfile(Model model){
+    @GetMapping("/edit/{id}")
+    public String displayCustomerUpdateProfile(@PathVariable List<Integer> customerIds, Model model){
+
+        List<Customer> optCustomer = (List<Customer>) customerRepository.findAll();
         model.addAttribute("title", "editProfile");
         model.addAttribute(new Customer());
+
+        model.addAttribute("customer", optCustomer);
         return "customer/update-customer";
     }
 
 
+    @GetMapping("/list/{customerId}/")
+    public String displayCustomer(Model model, @PathVariable int customerId) {
+
+//        if (userId !=null) {
+        Optional<Customer> optCustomer = customerRepository.findById(customerId);
+        if (optCustomer.isPresent()) {
+            Customer customer = optCustomer.get();
+            model.addAttribute("customer", customer);
+
+
+            return "profile";
+
+
+        } else {
+
+            model.addAttribute("customers", customerRepository.findAll());
+
+            return "redirect:/customer/list";
+
+        }
+
+    }
 
 
     @GetMapping("/delete")
-    public String processDeleteCustomerForm(){
+    public String renderDeleteCustomerForm(Model model){
+        model.addAttribute("title", "delete-customer");
+        model.addAttribute("customers", customerRepository.findAll());
 
         return "customer/delete-customer";
+}
+
+
+@PostMapping("/delete")
+public String processDeleteCustomerForm(@RequestParam (required = false) int[] customerId){
+
+        for (int id : customerId){
+            customerRepository.findById(id);
+        }
+        return  "redirect:/customer/list";
 }
 
 

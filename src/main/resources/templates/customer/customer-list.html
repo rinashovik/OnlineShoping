@@ -8,15 +8,15 @@
 
 <div class="container-fluid body-content g-col-8 text-white text-bg-secondary mt-3">
 
-    <h1 class="text-white text-bg-warning"><strong>Customer Lists</strong></h1>
+    <h1 class="text-white text-bg-warning text-center align-middle"><strong>Customer Lists</strong></h1>
     <div>
-        <button class="btn btn-info"><a th:href="@{'/customer/add'}">Add User</a></button>
+        <button type="button" class="btn btn-info" ml-25><a th:href="@{'/customer/add'}">Add User</a></button>
     </div>
 
     <div class="container mt-3">
         <div class="card">
             <div class="card-header">
-                <table>
+                <table class="container body-content">
 <!--                                        <div class="container body-content">-->
                     <thead>
                     <tr>
@@ -37,7 +37,6 @@
                     <ul>
                         <tr th:each="customer : ${customers}">
                             <th:block>
-
                                 <td th:text="${customer.fName}">Name</td>
                                 <td th:text="${customer.lName}"></td>
                                 <td th:text="${customer.email}"></td>
@@ -46,17 +45,13 @@
                                 <td th:text="${customer.city}"></td>
                                 <td th:text="${customer.zipCode}"></td>
                                 <td>
-                                    <button class="btn btn-primary btn-md g-2"><a th:href="@{/customer/edit}">Edit</a></button>
-                                    <button class="btn btn-danger btn-md"><a th:href="@{/customer/delete}">Delete</a></button>
+                                    <button type="button" class="btn btn-warning btn-md g-2"><a th:href="@{/customer/edit}">Edit</a></button>
+<!--                                    <button type="button" class="btn btn-danger btn-md" data-bs-toggle="button"><a th:href="@{/customer/delete}">Delete</a></button>-->
+                                    <button type="button" class="btn btn-danger btn-md g-2"><a th:href="@{'/customer/delete'}">Delete </a></button>
                                 </td>
                             </th:block>
-
                         </tr>
-
-
                     </ul>
-
-
                     </tbody>
                 </table>
                 <div>
@@ -64,7 +59,10 @@
             </div>
         </div>
     </div>
-    <footer th:replace="~{fragments :: page-footer}"></footer>
+    <div>
+        <footer th:replace="~{fragments :: page-footer}"></footer>
+
+    </div>
     </div>
 </body>
 </html>
