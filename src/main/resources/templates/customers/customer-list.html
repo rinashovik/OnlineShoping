@@ -20,6 +20,8 @@
 <!--                                        <div class="container body-content">-->
                     <thead>
                     <tr>
+
+                        <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
@@ -37,6 +39,8 @@
                     <ul>
                         <tr th:each="customer : ${customers}">
                             <th:block>
+                                <td th:text="${customer.id}">ID</td>
+
                                 <td th:text="${customer.fName}">Name</td>
                                 <td th:text="${customer.lName}"></td>
                                 <td th:text="${customer.email}"></td>
@@ -45,9 +49,11 @@
                                 <td th:text="${customer.city}"></td>
                                 <td th:text="${customer.zipCode}"></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning btn-md g-2"><a th:href="@{/customer/edit}">Edit</a></button>
-<!--                                    <button type="button" class="btn btn-danger btn-md" data-bs-toggle="button"><a th:href="@{/customer/delete}">Delete</a></button>-->
-                                    <button type="button" class="btn btn-danger btn-md g-2"><a th:href="@{'/customer/delete'}">Delete </a></button>
+                                    <button type="button" class="btn btn-warning btn-md g-2"><a th:href="@{/customers/edit(id=${customer.id})}">Edit</a></button>
+<!--                                    <button type="button" class="btn btn-danger btn-md g-2"><a th:href="@{/customer/delete(id=${customer.id})}">Delete </a></button>-->
+
+                                    <button type="button" class="btn btn-danger btn-md g-2"><a th:href="@{/customers/delete(id=${customer.id})}" onclick="return confirm('Are  you sure')">Delete </a></button>
+
                                 </td>
                             </th:block>
                         </tr>

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping(value = "/customer/")
+@RequestMapping(value = "/customers/")
 public class CustomerController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class CustomerController {
     @GetMapping("/")
     public String helloCustomerPage(){
 
-        return "customer/index";
+        return "customers/index";
 
     }
 
@@ -30,7 +30,7 @@ public class CustomerController {
 public String displayCustomerList(Model model){
     model.addAttribute("title", "customer-list");
     model.addAttribute("customers", customerRepository.findAll());
-    return "customer/customer-list";
+    return "customers/customer-list";
 }
 
 
@@ -39,7 +39,7 @@ public String displayCustomerList(Model model){
     public String displayCreateCustomerForm(Model model){
         model.addAttribute(new Customer());
         model.addAttribute("title", "addCustomer");
-        return "customer/add-customer";
+        return "customers/add-customer";
 
     }
 
@@ -48,10 +48,10 @@ public String displayCustomerList(Model model){
 
     if(errors.hasErrors()){
         model.addAttribute("title", "addCustomer");
-        return "customer/add-customer";
+        return "customers/add-customer";
     }
     else{
-        model.addAttribute("title", "customerlist");
+        model.addAttribute("title", "customer-list");
         customerRepository.save(newCustomer);
         return "redirect:/customer/profile";
 
@@ -65,7 +65,7 @@ public String displayCustomerList(Model model){
     public String displayCustomerProfile(Model model){
         model.addAttribute("title", "customerProfile");
         model.addAttribute("customers", customerRepository.findAll()); // List all customers
-        return "customer/profile";
+        return "customers/profile";
     }
 
     @GetMapping("/edit/{id}")
@@ -76,7 +76,7 @@ public String displayCustomerList(Model model){
         model.addAttribute(new Customer());
 
         model.addAttribute("customer", optCustomer);
-        return "customer/update-customer";
+        return "customers/update-customer";
     }
 
 
@@ -97,31 +97,45 @@ public String displayCustomerList(Model model){
 
             model.addAttribute("customers", customerRepository.findAll());
 
-            return "redirect:/customer/list";
+            return "redirect:/customers/list";
 
         }
 
     }
 
+//    @GetMapping("/delete")
+//    public String processDeleteCustomerForm(@RequestParam int id){
+//
+//        Customer customer = customerRepository.findById(id).get();
+//        customerRepository.delete(customer);
+//
+//
+//        return "redirect:/customers/list"; // path
+//    }
+
+
+
+
+//
+//    @GetMapping("/delete")
+//    public String renderDeleteCustomerForm(Model model){
+//        model.addAttribute("title", "delete-customer");
+//        model.addAttribute("customers", customerRepository.findAll());
+//
+//        return "customers/delete-customer";
+//}
+//
+//
 
     @GetMapping("/delete")
-    public String renderDeleteCustomerForm(Model model){
-        model.addAttribute("title", "delete-customer");
-        model.addAttribute("customers", customerRepository.findAll());
-
-        return "customer/delete-customer";
-}
-
-
-@PostMapping("/delete")
-public String processDeleteCustomerForm(@RequestParam (required = false) int[] customerId){
+    public String processDeleteCustomerForm(@RequestParam (required = false) int[] customerId){
 
         for (int id : customerId){
-            customerRepository.findById(id);
+            customerRepository.findById(id).get();
         }
-        return  "redirect:/customer/list";
-}
-
+        customerRepository.delete(new Customer());
+        return  "redirect:/customers/list";
+    }
 
 }
 
