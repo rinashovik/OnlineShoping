@@ -53,7 +53,7 @@ public String displayCustomerList(Model model){
     else{
         model.addAttribute("title", "customer-list");
         customerRepository.save(newCustomer);
-        return "redirect:/customer/profile";
+        return "redirect:/customers/profile";
 
     }
 
@@ -81,14 +81,15 @@ public String displayCustomerList(Model model){
 
 
     @GetMapping("/list/{customerId}/")
-    public String displayCustomer(Model model, @PathVariable int customerId) {
+    public String displayCustomerForm(Model model, @PathVariable int customerId) {
 
 //        if (userId !=null) {
         Optional<Customer> optCustomer = customerRepository.findById(customerId);
         if (optCustomer.isPresent()) {
             Customer customer = optCustomer.get();
-            model.addAttribute("customer", customer);
+            customerRepository.save(customer);
 
+            model.addAttribute("customer", customer);
 
             return "profile";
 
@@ -103,39 +104,33 @@ public String displayCustomerList(Model model){
 
     }
 
-//    @GetMapping("/delete")
-//    public String processDeleteCustomerForm(@RequestParam int id){
+
+
+
+
+
+    @GetMapping("/delete")
+    public String processDeleteCustomerForm(@RequestParam (required = false) int id){
+
+            customerRepository.deleteById(id);
+
+
+//            Customer customer = customerRepository.findById(id).get();
+//            customerRepository.delete(new Customer());
 //
-//        Customer customer = customerRepository.findById(id).get();
-//        customerRepository.delete(customer);
-//
-//
-//        return "redirect:/customers/list"; // path
+        return  "redirect:/customers/list";
+    }
+
+
+//    @PostMapping("/delete")
+//    public String processDeleteTaskForm(@RequestParam(required = false) int[] customerId) {
+//        for (int id : customerId) {
+//            taskRepository.deleteById(id);
+//        }
+//        return "redirect:/";
 //    }
 
 
-
-
-//
-//    @GetMapping("/delete")
-//    public String renderDeleteCustomerForm(Model model){
-//        model.addAttribute("title", "delete-customer");
-//        model.addAttribute("customers", customerRepository.findAll());
-//
-//        return "customers/delete-customer";
-//}
-//
-//
-
-    @GetMapping("/delete")
-    public String processDeleteCustomerForm(@RequestParam (required = false) int[] customerId){
-
-        for (int id : customerId){
-            customerRepository.findById(id).get();
-        }
-        customerRepository.delete(new Customer());
-        return  "redirect:/customers/list";
-    }
 
 }
 
