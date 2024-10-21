@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}">
+</head>
+
+<body>
+
+<nav th:replace="~{fragments :: page-header}"></nav>
+<div class="container body-content g-col-8 text-white text-bg-secondary mt-3">
+
+<h1>Login Page</h1>
+
+<form method="post" class="mt-75">
+    <div class="form-group">
+        <label th:for="username">Username | Email
+            <input class="form-control" th:field="${loginFormDTO.username}">
+        </label>
+        <p class="error" th:errors="${loginFormDTO.username}"></p>
+    </div>
+    <div class="form-group">
+        <label>Password
+            <input class="form-control" th:field="${loginFormDTO.password}" type="password">
+        </label>
+        <p class="error" th:errors="${loginFormDTO.password}"></p>
+    </div>
+    <div class="row g-3">
+        <input type="checkbox" />
+        <label class="g-3">Remember me</label>
+        <label><a th:href="@{/reset}">Forget your password</a></label>
+    </div>
+    <div>
+
+        <!--            <input type="submit" class="btn btn-primary" value="Sign in" /><a th:href="@{/profile}"></a>-->
+        <input type="submit" class="btn btn-primary" value="Sign in" />
+        <!--        <button><a th:href="@{/profile/}">Login</a></button>-->
+
+        <p>Don't have an account? <a th:href="@{/register}">Register for one.</a></p>
+
+    </div>
+    <div>
+    </div>
+
+</form>
+
+    <div>
+        <footer th:replace="~{fragments :: page-footer}"></footer>
+
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.simple_world.eShop.controllers;
 
 import com.simple_world.eShop.data.CustomerRepository;
+import com.simple_world.eShop.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Controller;
@@ -29,8 +30,30 @@ public class HomeController {
 
     }
 
+
+//    @GetMapping("/login")
+//    public String loginForm(){
+//
+//        return "login-form";
+//
+//
+//    }
+//
+//    @GetMapping("/register")
+//    public String displayRegistrationForm(){
+//
+//
+//        return "register-form";
+//    }
+
+
     @GetMapping("/contact")
-    public String WelcomeCustomerContactPage(){
+    public String WelcomeCustomerContactPage(Model model){
+
+            model.addAttribute(new Customer());
+            model.addAttribute("title", "addCustomer");
+
+
 
         return "contact";
 

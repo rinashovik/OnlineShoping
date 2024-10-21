@@ -9,8 +9,10 @@
 <div class="container-fluid body-content g-col-8 text-white text-bg-secondary mt-3">
 
     <h1 class="text-white text-bg-warning text-center align-middle"><strong>Customer Lists</strong></h1>
-    <div>
-        <button type="button" class="btn btn-info" ml-25><a th:href="@{'/customers/add'}">Add User</a></button>
+    <div class="text-center align-middle">
+        <button type="button" class="btn btn-info"><a th:href="@{'/customers/add'}">Add User</a></button>
+        <button type="button" class="btn btn-info"><a th:href="@{'/customers/'}">Back</a></button>
+
     </div>
 
     <div class="container mt-3">
@@ -24,7 +26,7 @@
                         <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Email</th>
+                        <th>Contact Email</th>
                         <th>Phone Number</th>
                         <th>Address</th>
                         <th>City</th>
@@ -41,16 +43,15 @@
                             <th:block>
                                 <td th:text="${customer.id}">ID</td>
 
-                                <td th:text="${customer.fName}">Name</td>
-                                <td th:text="${customer.lName}"></td>
-                                <td th:text="${customer.email}"></td>
+                                <td th:text="${customer.firstName}">Name</td>
+                                <td th:text="${customer.lastName}"></td>
+                                <td th:text="${customer.contactEmail}">Email</td>
                                 <td th:text="${customer.phoneNumber}"></td>
                                 <td th:text="${customer.address}"></td>
                                 <td th:text="${customer.city}"></td>
                                 <td th:text="${customer.zipCode}"></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning btn-md g-2"><a th:href="@{/customers/edit(id=${customer.id})}">Edit</a></button>
-<!--                                    <button type="button" class="btn btn-danger btn-md g-2"><a th:href="@{/customer/delete(id=${customer.id})}">Delete </a></button>-->
+                                    <button type="button" class="btn btn-warning btn-md g-2"><a th:href="@{/customers/edit/{id}(id=${customer.id})}">Edit</a></button>
 
                                     <button type="button" class="btn btn-danger btn-md g-2"><a th:href="@{/customers/delete(id=${customer.id})}" onclick="return confirm('Are  you sure')">Delete </a></button>
 

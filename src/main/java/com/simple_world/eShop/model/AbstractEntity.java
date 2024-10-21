@@ -13,10 +13,6 @@ public abstract class AbstractEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
 
-//    public AbstractEntity() {
-//        this.id = id;
-//    }
-
     public int getId() {
         return id;
     }

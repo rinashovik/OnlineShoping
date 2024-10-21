@@ -1,12 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <head th:replace="~{fragments :: head}"></head>
 <body>
 <nav th:replace="~{fragments :: page-header}"></nav>
 <div class="container body-content g-col-8 text-white text-bg-secondary mt-3">
     <h1 class="text-white text-bg-warning"><strong>Hello Viewers!
         <br/>This is Dashboard Page</strong></h1>
-</div>
+
+
+
+
+            <div>
+                <h1> <a th:href="@{/dashboard}">Dashboard</a></h1>
+            </div>
+            <div>    <span> <a th:href="@{/customers/add}">Add User</a></span>
+            </div>
+            <div><a th:href="@{/customers/profile}">Edit User Profile</a>
+<!--                <li>Re-set Password</li>-->
+<!--                <li>Update Phone Number</li>-->
+<!--                <li>Update Email</li>-->
+
+            </div>
+            <div><a th:href="@{/customers/list}">Customer Lists</a></div>
+            <div><a th:href="@{/settings}">Settings</a></div>
+            <div><a th:href="@{/contact}">Contact</a></div>
+            <div><a th:href="@{/customers/profile}">Edit Customer Profile</a></div>
+        </div>
+
+
+
+
+
+
 </body>
 <div th:replace="~{fragments :: page-footer}"></div>
 </html>

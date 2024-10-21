@@ -3,6 +3,7 @@ package com.simple_world.eShop.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -11,80 +12,79 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @Entity
 public class Customer extends AbstractEntity {
 
-   @NotBlank
-   @NotNull
-   @Size(min=2, max=80, message = "Required field")
-   private String fName;
+    @NotBlank
+    @NotNull
+    @Size(min = 2, max = 80, message = "Required field")
+    private String firstName;
 
     @NotBlank
     @NotNull
-    @Size(min=2, max=80, message = "Required field")
-    private String lName;
+    @Size(min = 2, max = 80, message = "Required field")
+    private String lastName;
 
     @NotBlank
     @NotNull
-    @Size(min=2, max=80, message = "Required field")
-    private String email;
+    @Email
+    @Size(min = 2, max = 80, message = "Required field")
+    private String contactEmail;
 
     @NotBlank
     @NotNull
-    @Size(min=2, max=80, message = "Required field")
+    @Size(min = 2, max = 80, message = "Required field")
     private String phoneNumber;
     @NotBlank
     @NotNull
-    @Size(min=2, max=80, message = "Required field")
+    @Size(min = 2, max = 80, message = "Required field")
     private String address;
 
     @NotBlank
     @NotNull
-    @Size(min=2, max=80, message = "Required field")
+    @Size(min = 2, max = 80, message = "Required field")
     private String city;
 
     @NotBlank
     @NotNull
-    @Size(min=2, max=80, message = "Required field")
+    @Size(min = 2, max = 80, message = "Required field")
     private String zipCode;
 
 
     public Customer() {
 
     }
-    public Customer(String fName, String lName, String email, String phoneNumber, String address, String city, String zipCode) {
+
+    public Customer(String firstName, String lastName, String contactEmail, String phoneNumber, String address, String city, String zipCode) {
         super();
-        this.fName = fName;
-        this.lName = lName;
-        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.contactEmail = contactEmail;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.city = city;
         this.zipCode = zipCode;
     }
 
-
-
-
-    public String getfName() {
-        return fName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getlName() {
-        return lName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setlName(String lName) {
-        this.lName = lName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getContactEmail() {
+        return contactEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
     }
 
     public String getPhoneNumber() {
@@ -119,3 +119,4 @@ public class Customer extends AbstractEntity {
         this.zipCode = zipCode;
     }
 }
+
