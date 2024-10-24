@@ -39,12 +39,12 @@ public class HomeController {
 //
 //    }
 //
-//    @GetMapping("/register")
-//    public String displayRegistrationForm(){
-//
-//
-//        return "register-form";
-//    }
+    @GetMapping("/newuser")
+    public String displayNewUserPage(){
+
+
+        return "new-user";
+    }
 
 
     @GetMapping("/contact")

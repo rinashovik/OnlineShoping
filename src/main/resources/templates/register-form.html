@@ -4,48 +4,75 @@
 
 <body>
 
+<style> body{
+       background-image: url('images/bg_img.png');
+       background-size:cover;
+       height: 100vh;
+
+       }
+</style>
+
+
 <nav th:replace="~{fragments :: page-header}"></nav>
-<div class="container body-content g-col-8 text-white text-bg-secondary mt-3">
+<h1>Registration Page</h1>
 
-    <h1>Registration Page</h1>
+<!--<div class="container body-content g-col-8 text-bg-secondary mt-3">-->
 
-<form method="post" class="mt-75">
-    <div class="form-group">
-        <label>Username | Email
-            <input class="form-control" th:field="${registerFormDTO.username}" />
-        </label>
+
+    <div class="bg-image shadow-2-strong">
+        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-md-8">
+
+                        <form class="bg-white rounded shadow-5-strong p-5" method="post">
+
+<!--<form method="post" class="mt-75">-->
+
+ <div class="form-outline mb-4" data-mdb-input-init>
+        <label class="form-label">Email | Username</label>
+
+        <input class="form-control" th:field="${registerFormDTO.username}" />
+
+<!--        <label >Username | Email</label>-->
         <p class="error" th:errors="${registerFormDTO.username}"></p>
     </div>
 
-
-    <div class="form-group">
-        <label>Password
+     <div class="form-outline mb-4" data-mdb-input-init>
+        <label class="form-label">Password</label>
             <input class="form-control" th:field="${registerFormDTO.password}" type="password" />
-        </label>
+
         <p class="error" th:errors="${registerFormDTO.password}"></p>
     </div>
-    <div class="form-group">
-        <label>Verify Password
-            <input class="form-control" th:field="${registerFormDTO.verifyPassword}" type="password" />
-        </label>
-        <p class="error" th:errors="${registerFormDTO.verifyPassword}"></p>
 
+          <div class="form-outline mb-4" data-mdb-input-init>
+        <label class="form-label">Verify Password  </label>
+            <input class="form-control" th:field="${registerFormDTO.verifyPassword}" type="password" />
+
+        <p class="error" th:errors="${registerFormDTO.verifyPassword}"></p>
 
     </div>
 
     <!--    <input  type="submit" class="btn btn-primary" value="Register" /><a th:href="@{/login}"></a>-->
-    <input  type="submit" class="btn btn-primary" value="Register" /><a th:href="@{/newuser}"></a>
+<!--    <input  type="submit" class="btn btn-primary" value="Register" /><a th:href="@{/newuser}"></a>-->
+    <input  type="submit" class="btn btn-primary" value="Register" />
+
 
     <label> Already member? <a th:href="@{/login}">Login here </a></label>
     <!--            <p>Already member? <a href="/login">Login here.</a></p>-->
 
 
 </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <div>
     <footer th:replace="~{fragments :: page-footer}"></footer>
+</div>
 
-</div>
-</div>
+<!--</div>-->
 </body>
 </html>
