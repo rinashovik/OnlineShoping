@@ -39,24 +39,28 @@
                     <a class="nav-link" th:href="@{/contact}">Contact</a>
                 </li>
             </ul>
-
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 position-absolute top-0 end-0">
-            <li class="nav-item">
-                <a class="nav-link active btn btn-outline-warning" aria-current="page" th:href="@{/register}">Register</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link btn btn-warning" th:href="@{/login}">Login</a>
-            </li>
-        </ul>
-
-
+<hr />
         <ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </ul>
+
+        <div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active btn btn-outline-warning rounded-pill" aria-current="page" th:href="@{/register}">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link btn btn-warning rounded-pill" th:href="@{/login}">Login</a>
+                </li>
+            </ul>
+        </div>
+
+
+
 
 <!--        <div class="position-absolute top-0 end-0">-->
 
@@ -108,37 +112,45 @@
 
 
     <div class="text-center py-4 align-items-center">
-        <p class="bg-white">Follow STLC on social media</p>
-        <a href="" class="btn btn-warning m-1" role="button" data-mdb-ripple-init
-           rel="nofollow" target="_blank">
-<!--            <i class="fab fa-youtube"></i>-->
+        <p class="bg-info  text-white bg-opacity-25">Follow STLC on social media</p>
+<!--        <a href="" class="badge rounded-pill text-bg-info" role="button" data-mdb-ripple-init-->
+<!--           rel="nofollow" target="_blank">-->
 
+<!--            <i class="fab fa-youtube"></i>-->
+<!--        <a href="" class="btn rounded-pill text-bg-light m-1" role="button" data-mdb-ripple-init-->
+<!--           rel="nofollow" target="_blank">-->
+<!--            <i class="bi bi-youtube"></i>-->
+<!--        </a>-->
+        <a href="" class="btn text-bg-light m-1" role="button" data-mdb-ripple-init
+           rel="nofollow" target="_blank">
             <i class="bi bi-youtube"></i>
         </a>
-        <a href="" class="btn btn-warning m-1" role="button" rel="nofollow" data-mdb-ripple-init
+
+        <a href="" class="btn text-bg-light m-1" role="button" rel="nofollow" data-mdb-ripple-init
            target="_blank">
 <!--            <i class="fab fa-facebook-f"></i>-->
 
             <i class="bi bi-facebook"></i>
         </a>
-        <a href="" class="btn btn-warning m-1" role="button" rel="nofollow" data-mdb-ripple-init
+
+        <a href="" class="btn text-bg-light m-1" role="button" rel="nofollow" data-mdb-ripple-init
            target="_blank">
-<!--            <i class="fab fa-twitter"></i>-->
+            <!--            <i class="fab fa-twitter"></i>-->
             <i class="bi bi-twitter"></i>
         </a>
-        <a href="https://github.com/rinashovik" class="btn btn-warning m-1" role="button" rel="nofollow" data-mdb-ripple-init
+
+        <a href="https://github.com/rinashovik" class="btn text-bg-light m-1" role="button" rel="nofollow" data-mdb-ripple-init
            target="_blank">
-<!--            <img src="/assets/icons/bootstrap.svg" alt="stlc" width="32" height="32">-->
-<!--            <i class="fab fa-github"></i>-->
+
             <i class="bi bi-github"></i>
         </a>
     </div>
 
     <!-- Copyright -->
-    <div class="text-center p-3 bg-danger" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="text-center text-white p-3 bg-danger" style="background-color: rgba(0, 0, 0, 0.2);">
         &copy; 2023 Copyright: Simple Technology Learning
 
-        <a class="text-dark" href="">stlc.com</a>
+        <a class="text-dark" href="https://tell-someting-world.onrender.com/">stlc.com</a>
     </div>
     <!-- Copyright -->
 </div>

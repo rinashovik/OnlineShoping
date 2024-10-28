@@ -14,7 +14,7 @@
 
 
 <nav th:replace="~{fragments :: page-header}"></nav>
-<h1>Registration Page</h1>
+<h1 class="text-white">Registration Page</h1>
 
 <!--<div class="container body-content g-col-8 text-bg-secondary mt-3">-->
 
@@ -30,36 +30,30 @@
 <!--<form method="post" class="mt-75">-->
 
  <div class="form-outline mb-4" data-mdb-input-init>
-        <label class="form-label">Email | Username</label>
-
-        <input class="form-control" th:field="${registerFormDTO.username}" />
-
-<!--        <label >Username | Email</label>-->
-        <p class="error" th:errors="${registerFormDTO.username}"></p>
+     <input class="form-control" th:field="${registerFormDTO.username}" />
+     <label class="form-label" th:for="username">Email | Username</label>
+     <p class="error" th:errors="${registerFormDTO.username}"></p>
     </div>
 
      <div class="form-outline mb-4" data-mdb-input-init>
-        <label class="form-label">Password</label>
-            <input class="form-control" th:field="${registerFormDTO.password}" type="password" />
 
-        <p class="error" th:errors="${registerFormDTO.password}"></p>
+                 <input class="form-control" th:field="${registerFormDTO.password}" type="password" />
+                 <label class="form-label">Password</label>
+                 <p class="error" th:errors="${registerFormDTO.password}"></p>
     </div>
 
           <div class="form-outline mb-4" data-mdb-input-init>
-        <label class="form-label">Verify Password  </label>
-            <input class="form-control" th:field="${registerFormDTO.verifyPassword}" type="password" />
-
-        <p class="error" th:errors="${registerFormDTO.verifyPassword}"></p>
+              <input class="form-control" th:field="${registerFormDTO.verifyPassword}" type="password" />
+              <label class="form-label">Verify Password  </label>
+              <p class="error" th:errors="${registerFormDTO.verifyPassword}"></p>
 
     </div>
 
     <!--    <input  type="submit" class="btn btn-primary" value="Register" /><a th:href="@{/login}"></a>-->
 <!--    <input  type="submit" class="btn btn-primary" value="Register" /><a th:href="@{/newuser}"></a>-->
-    <input  type="submit" class="btn btn-primary" value="Register" />
-
-
-    <label> Already member? <a th:href="@{/login}">Login here </a></label>
-    <!--            <p>Already member? <a href="/login">Login here.</a></p>-->
+                <input  type="submit" class="btn btn-primary rounded-pill" value="Register" />
+                <label> Already member? <a th:href="@{/login}">Login here </a></label>
+<!--                <p>Already member? <a href="/login">Login here.</a></p>-->
 
 
 </form>
@@ -68,6 +62,7 @@
             </div>
         </div>
     </div>
+<hr class="m-0" />
 
 <div>
     <footer th:replace="~{fragments :: page-footer}"></footer>

@@ -39,7 +39,7 @@ public class HomeController {
 //
 //    }
 //
-    @GetMapping("/newuser")
+    @GetMapping("/new-user")
     public String displayNewUserPage(){
 
 

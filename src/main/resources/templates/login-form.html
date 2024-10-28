@@ -17,7 +17,6 @@
 <nav th:replace="~{fragments :: page-header}"></nav>
 <!--<div class="container body-content g-col-8  text-bg-secondary mt-3">-->
 
-
 <h1 class="text-white align-center">Login Page</h1>
 
     <div class="bg-image shadow-2-strong">
@@ -26,11 +25,29 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-5 col-md-8">
                         <form class="bg-white rounded shadow-5-strong p-5" method="post">
+
+
+<!--                            <div class="form-floating mb-4" data-mdb-input-init>-->
+<!--                                <input type="username" class="form-control" id="floatingInput">-->
+<!--                                <label th:for="floatingInput">username | Email address</label>-->
+<!--                            </div>-->
+
+<!--                            <div class="form-outline mb-4" data-mdb-input-init>-->
+<!--                                <input class="form-control" th:field="${registerFormDTO.username}" />-->
+<!--                                <label class="form-label" th:for="username">Email | Username</label>-->
+<!--                                <p class="error" th:errors="${registerFormDTO.username}"></p>-->
+<!--                            </div>-->
+<!--                            <div class="form-floating mb-4" data-mdb-input-init>-->
+<!--                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">-->
+<!--                                <label for="floatingPassword">Password</label>-->
+<!--                            </div>-->
+
+
 <!--<form method="post" class="mt-75">-->
                             <div class="form-outline mb-4" data-mdb-input-init>
-                                <input type="username" id="username" class="form-control" th:field="${loginFormDTO.username}">
+                                <input type="username" class="form-control" th:field="${loginFormDTO.username}">
 
-                                <label class="form-label" th:for="username">Username | Email</label>
+                                <label class="form-label" id="username" th:for="username">Username | Email</label>
                                 <p class="error" th:errors="${loginFormDTO.username}"></p>
                             </div>
                             <div class="form-outline mb-4" data-mdb-input-init>
@@ -56,15 +73,12 @@
 <!--                                    </label>-->
                                 </div>
     </div>
-
-<!--    </div>-->
-
                             <div>
-<!--        <input type="submit" class="btn btn-primary btn-block" value="Sign in" />-->
 
-     <button type="submit" class="btn btn-primary btn-block" data-mdb-ripple-init>Sign in</button>
+<!--                                <button type="submit" class="btn btn-primary rounded-pill text-white"><a th:href="@{'/customers/'}">Sign In</a></button>-->
+                                <input type="submit" class="btn btn-primary rounded-pill text-white" value="Sign In" >
 
-        <p>Don't have an account? <a th:href="@{/register}">Register for one.</a></p>
+                                <p>Don't have an account? <a th:href="@{/register}">Register for one.</a></p>
 
     </div>
 
@@ -83,7 +97,6 @@
 </div>
 
     <hr class="m-0" />
-
     <div>
         <footer th:replace="~{fragments :: page-footer}"></footer>
 
