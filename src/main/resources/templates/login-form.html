@@ -17,7 +17,7 @@
 <nav th:replace="~{fragments :: page-header}"></nav>
 <!--<div class="container body-content g-col-8  text-bg-secondary mt-3">-->
 
-<h1 class="text-white align-center">Login Page</h1>
+<h1 class="text-white justify-content-center">Login Page</h1>
 
     <div class="bg-image shadow-2-strong">
         <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
@@ -61,7 +61,7 @@
                                 <div class="col d-flex justify-content-center">
                                     <div class="form-check">
 
-                                        <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked >
+                                        <input class="form-check-input" type="checkbox" value="" id="form1Example3" >
                                         <label  class="form-check-label">Remember me</label>
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
                                 <div class="col text-center">
 
 <!--        <label>-->
-            <a th:href="@{/reset}">Forget your password</a>
+            <a class="text-decoration-none" th:href="@{/help-reset}">Forget your password</a>
 <!--                                    </label>-->
                                 </div>
     </div>
@@ -78,7 +78,7 @@
 <!--                                <button type="submit" class="btn btn-primary rounded-pill text-white"><a th:href="@{'/customers/'}">Sign In</a></button>-->
                                 <input type="submit" class="btn btn-primary rounded-pill text-white" value="Sign In" >
 
-                                <p>Don't have an account? <a th:href="@{/register}">Register for one.</a></p>
+                                <p>Don't have an account? <a class="text-decoration-none" th:href="@{/register}">Register for one.</a></p>
 
     </div>
 

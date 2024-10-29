@@ -91,10 +91,10 @@ public class AuthenticationController {
 //        return "redirect:/";
 
         //return "redirect:/login";
-         return "redirect:/new-user";
+         return "redirect:/newuser";
 
     }
-    @GetMapping("/new-user")
+    @GetMapping("/newuser")
     public String displayNewUser(Model model) {
         // model.addAttribute(new LoginFormDTO());
         model.addAttribute("title", "NewUser");
@@ -137,7 +137,7 @@ public class AuthenticationController {
 
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:/newuser"; //path to redirect
+        return "redirect:/customers"; //path to redirect
     }
 
     @GetMapping("/logout")
@@ -179,7 +179,7 @@ public class AuthenticationController {
         User newUser1 = new User(resetFormDTO.getUsername(), resetFormDTO.getPassword());
         userRepository.save(newUser1);
         setUserInSession(request.getSession(), newUser1);
-        return "redirect:/";
+        return "redirect:/passwordupdate";
     }
 
 //

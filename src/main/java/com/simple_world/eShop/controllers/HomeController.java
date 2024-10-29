@@ -39,11 +39,11 @@ public class HomeController {
 //
 //    }
 //
-    @GetMapping("/new-user")
+    @GetMapping("/passwordupdate")
     public String displayNewUserPage(){
 
 
-        return "new-user";
+        return "password-update";
     }
 
 

@@ -10,8 +10,10 @@
 
     <h1 class="text-white text-bg-warning text-center align-middle"><strong>Customer Lists</strong></h1>
     <div class="text-center align-middle">
-        <button type="button" class="btn btn-info rounded-pill"><a th:href="@{'/customers/add'}">Add User</a></button>
-        <button type="button" class="btn btn-secondary rounded-pill" style="background-color: #6f42c1"><a th:href="@{'/customers/'}">Back</a></button>
+        <button type="button" class="btn btn-info rounded-pill" > <a class="text-decoration-none" th:href="@{'/customers/add'}" >Add Customer</a></button>
+
+<!--        </input>-->
+        <button type="button" class="btn btn-secondary btn-block rounded-pill" style="background-color: #6f42c1"><a class="text-decoration-none" th:href="@{'/customers/'}">Back</a></button>
 
     </div>
 
@@ -19,7 +21,6 @@
         <div class="card">
             <div class="card-header">
                 <table class="container body-content">
-<!--                                        <div class="container body-content">-->
                     <thead>
                     <tr>
 
@@ -51,9 +52,9 @@
                                 <td th:text="${customer.city}"></td>
                                 <td th:text="${customer.zipCode}"></td>
                                 <td>
-                                    <button type="button" class="btn btn-warning btn-md  rounded-pill g-2"><a th:href="@{/customers/edit/{id}(id=${customer.id})}">Edit</a></button>
+                                    <button type="button" class="btn btn-warning btn-md  rounded-pill g-2"><a class="text-decoration-none" th:href="@{/customers/edit/{id}(id=${customer.id})}">Edit</a></button>
 
-                                    <button type="button" class="btn btn-danger btn-md rounded-pill g-2"><a th:href="@{/customers/delete(id=${customer.id})}" onclick="return confirm('Are  you sure')">Delete </a></button>
+                                    <button type="button" class="btn btn-danger btn-md rounded-pill g-2"><a class="text-decoration-none" th:href="@{/customers/delete(id=${customer.id})}" onclick="return confirm('Are  you sure')">Delete </a></button>
 
                                 </td>
                             </th:block>
