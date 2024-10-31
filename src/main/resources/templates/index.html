@@ -6,32 +6,27 @@
 <div class="container body-content g-col-8 text-white text-bg-secondary mt-3">
     <h1 class="text-white text-bg-warning"><strong>Hello Viewers!
         <br/>This is Dashboard Page</strong></h1>
-
-
-
-
-            <div class="text-white">
-                <h1> <a th:href="@{/dashboard}">Dashboard</a></h1>
+        <div class="text-white" style="background-color:#FF68GT">
+            <div>
+                <h1> <a class="text-decoration-none" th:href="@{/customers/}">Dashboard</a></h1>
+            </div >
+            <div class="col bg-info">
+                <div class="">
+                    <span> <a class="col" th:href="@{/customers/add}">Add User</a></span>
+                </div>
+                <div>
+                    <a class="col" th:href="@{/customers/profile}">Edit Customer Info</a></div>
+                <div>
+                    <a class="col" type="button" th:href="@{/customers/list}">Customer Lists</a></div>
+                <div>
+                    <a class="col" th:href="@{/settings}">Settings</a></div>
+                <div>
+                    <a class="col" th:href="@{/contact}">Contact</a></div>
+                <div>
+                    <a class="col" th:href="@{/customers/profile}">Edit Customer Profile</a></div>
             </div>
-            <div>    <span> <a th:href="@{/customers/add}">Add User</a></span>
-            </div>
-            <div><a th:href="@{/customers/profile}">Edit User Profile</a>
-<!--                <li>Re-set Password</li>-->
-<!--                <li>Update Phone Number</li>-->
-<!--                <li>Update Email</li>-->
-
-            </div>
-            <div><a th:href="@{/customers/list}">Customer Lists</a></div>
-            <div><a th:href="@{/settings}">Settings</a></div>
-            <div><a th:href="@{/contact}">Contact</a></div>
-            <div><a th:href="@{/customers/profile}">Edit Customer Profile</a></div>
         </div>
-
-
-
-
-
-
-</body>
-<div th:replace="~{fragments :: page-footer}"></div>
-</html>
+    </div>
+    </body>
+    <div th:replace="~{fragments :: page-footer}"></div>
+    </html>

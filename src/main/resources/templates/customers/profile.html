@@ -9,7 +9,9 @@
 <div class="container body-content g-col-8 text-white text-bg-secondary mt-3">
 
         <h1>New Customer Created Successfully</h1>
-
+<div>
+        <button type="button" class="btn btn-success rounded-pill" > <a class="text-decoration-none" th:href="@{'/customers/add'}" >Add New Customer</a></button>
+</div>
         <table class="container body-content">
                         <thead>
                         <tr>
@@ -44,7 +46,7 @@
                                                 <td th:text="${customer.city}"></td>
                                                 <td th:text="${customer.zipCode}"></td>
                                                 <td>
-                                                        <button class="btn btn-danger"> <a th:href="@{/customers/edit}" >Yes </a></button>
+                                                        <button class="btn btn-danger"> <a th:href="@{/customers/edit/{id}(id=${customer.id})}" >Yes </a></button>
                                                         <button class="btn btn-info"> <a th:href="@{/customers/list}" >No</a></button>
                                                 </td>
                                         </th:block>

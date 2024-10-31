@@ -3,26 +3,25 @@
 <head th:replace="~{fragments :: head}">
 </head>
 <body class="container body-content">
-<nav th:replace="~{fragments :: page-header}"></nav>
+<!--<body>-->
 
-<div class="container body-content d-flex g-col-8 text-white text-bg-secondary mt-3">
+<nav th:replace="~{fragments :: page-header}"></nav>
+<div class="container-fluid d-flex body-content align-items-center g-col-8 text-white text-bg-secondary mt-3">
+
     <div class="container">
-        <h2>Update Customer</h2>
-        <div >
-            <label>Gender:</label>
-            <label>
-                <input  type="radio"/>
-            </label>
-            <label>Male</label>
-            <label>
-                <input  type="radio"/>
-            </label>
-            <label>Female</label>
-            <label>
-                <input  type="radio"/>
-            </label>
-            <label>Other</label>
+        <h2>Update Customer's Information</h2>
+        <label>Gender:</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Male</label>
         </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option1">
+            <label class="form-check-label" for="inlineRadio2">Female</label>
+        </div><div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option1">
+        <label class="form-check-label" for="inlineRadio3">Other</label>
+    </div>
         <div class="row mb-3">
             <div class="col">
                 <form method="post" class="mt-50">
@@ -39,7 +38,7 @@
                         <p class="error" th:errors="${customer.lastName}"></p>
                     </div>
                     <div class="form-group">
-                        <label th:for="contactEmail"> Contact Email
+                        <label th:for="contactEmail">Contact Email
                             <input class="form-control" th:field="${customer.contactEmail}">
                         </label>
                         <p class="error" th:errors="${customer.contactEmail}"></p>
@@ -71,8 +70,8 @@
                         <p class="error" th:errors="${customer.zipCode}"></p>
                     </div>
                     <div class="col-12">
-                        <button class="btn btn-info"><a th:href="@{'/customer/'}">Cancel</a></button>
-                        <button class="btn btn-success g-3 text-white bg-purple" type="submit">Save</button>
+                        <button class="btn btn-info rounded-pill"><a class="text-decoration-none" th:href="@{'/customers/'}">Cancel</a></button>
+                        <button class="btn btn-success g-3 text-white rounded-pill" type="submit">Save</button>
 
 
                     </div>
@@ -80,6 +79,11 @@
             </div>
         </div>
     </div>
+</div>
+
+<div>
+    <footer th:replace="~{fragments :: page-footer}"></footer>
+
 </div>
 </body>
 </html>
